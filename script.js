@@ -29,3 +29,17 @@ function operate(operator, a, b) {
       return divide(a, b);
   }
 }
+
+//Create the functions that populate the display when you click the number
+//buttons.
+
+//need to set up event listeners for (each class of) button
+
+const digits = Array.from(document.getElementsByClassName('digit'));
+const display = document.getElementById('display');
+
+digits.forEach(digit => {
+  digit.addEventListener('click', () => {
+    display.textContent = digit.textContent;
+  })
+});
