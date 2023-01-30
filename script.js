@@ -37,9 +37,11 @@ function operate(operator, a, b) {
 
 const digits = Array.from(document.getElementsByClassName('digit'));
 const display = document.getElementById('display');
+let displayValue = 0;
 
 digits.forEach(digit => {
   digit.addEventListener('click', () => {
     display.textContent = digit.textContent;
+    displayValue = Number(digit.textContent);
   })
 });
