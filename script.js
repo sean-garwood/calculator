@@ -30,18 +30,32 @@ function operate(operator, a, b) {
   }
 }
 
-//Create the functions that populate the display when you click the number
-//buttons.
+function getDisplayValue() {
+  return Number(displayValue);
+}
+
+function clearScreen() {
+  display.textContent = '0';
+  return displayValue = '';
+}
 
 //need to set up event listeners for (each class of) button
+const display = document.getElementById('display');
+let displayValue = '';
 
 const digits = Array.from(document.getElementsByClassName('digit'));
-const display = document.getElementById('display');
-let displayValue = 0;
+const operators = Array.from(document.getElementsByClassName('operator'));
+const equals = document.getElementById('equal');
+const clear = document.getElementById('clear');
 
 digits.forEach(digit => {
   digit.addEventListener('click', () => {
-    display.textContent = digit.textContent;
-    displayValue = Number(digit.textContent);
+    if (!displayValue) {
+      display.textContent = digit.textContent;
+      displayValue = digit.textContent;
+    } else {
+      display.textContent += digit.textContent;
+      displayValue += digit.textContent;
+    }
   })
 });
