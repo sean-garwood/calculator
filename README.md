@@ -3,7 +3,7 @@
 This is a browser-based calculator that is built to the [specification of The
 Odin Project](https://www.theodinproject.com/lessons/foundations-calculator).
 
-# todo
+# Completed
 
 - Your calculator is going to contain functions for all of the basic math operators you typically find on simple calculators, so start by creating functions for the following items and testing them in your browser’s console.
   - add
@@ -13,6 +13,8 @@ Odin Project](https://www.theodinproject.com/lessons/foundations-calculator).
 
 - Create a new function operate that takes an operator and 2 numbers and then
   calls one of the above functions on the numbers.
+
+# todo
 
 - Create a basic HTML calculator with buttons for each digit, each of the above functions and an “Equals” key.
   - Do not worry about wiring up the JS just yet.
