@@ -1,18 +1,7 @@
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
 
 function operate(operator, a, b) {
   switch (operator) {
@@ -41,11 +30,12 @@ let displayValue = '';
 
 const digits = Array.from(document.getElementsByClassName('digit'));
 const operators = Array.from(document.getElementsByClassName('operator'));
-const equals = document.getElementById('equal');
+const equals = document.getElementById('equals');
 const clear = document.getElementById('clear');
 
 let op = '';
 let operand = '';
+let answer = 0;
 
 digits.forEach(digit => {
   digit.addEventListener('click', () => {
@@ -65,4 +55,10 @@ operators.forEach(operator => {
     op = operator.textContent;
     displayValue = '';
   })
+});
+
+equals.addEventListener('click', () => {
+  answer = operate(op, getOperand(), getDisplayValue());
+  display.textContent = answer;
+  op = answer
 });
