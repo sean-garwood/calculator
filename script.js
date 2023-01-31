@@ -19,11 +19,6 @@ function operate(operator, a, b) {
 const getDisplayValue = () => Number(displayValue);
 const getOperand = () => Number(operand);
 
-function clearScreen() {
-  display.textContent = '0';
-  return displayValue = '';
-}
-
 //need to set up event listeners for (each class of) button
 const display = document.getElementById('display');
 let displayValue = '';
@@ -60,5 +55,13 @@ operators.forEach(operator => {
 equals.addEventListener('click', () => {
   answer = operate(op, getOperand(), getDisplayValue());
   display.textContent = answer;
-  op = answer
+  operand = answer;
+  displayValue = answer;
+  operator = '';
 });
+
+clear.addEventListener('click', () => {
+    display.textContent = '0';
+    displayValue = '';
+    answer = 0;
+})
