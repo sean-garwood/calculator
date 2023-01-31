@@ -16,23 +16,19 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
   switch (operator) {
-    case 'add':
+    case '+':
       return add(a, b);
-      break;
-    case 'subtract':
+    case '-':
       return subtract(a, b);
-      break;
-    case 'multiply':
+    case '*':
       return multiply(a, b);
-      break;
-    case 'divide':
+    case '/':
       return divide(a, b);
   }
 }
 
-function getDisplayValue() {
-  return Number(displayValue);
-}
+const getDisplayValue = () => Number(displayValue);
+const getOperand = () => Number(operand);
 
 function clearScreen() {
   display.textContent = '0';
@@ -48,6 +44,9 @@ const operators = Array.from(document.getElementsByClassName('operator'));
 const equals = document.getElementById('equal');
 const clear = document.getElementById('clear');
 
+let op = '';
+let operand = '';
+
 digits.forEach(digit => {
   digit.addEventListener('click', () => {
     if (!displayValue) {
@@ -57,5 +56,13 @@ digits.forEach(digit => {
       display.textContent += digit.textContent;
       displayValue += digit.textContent;
     }
+  })
+});
+
+operators.forEach(operator => {
+  operator.addEventListener('click', () => {
+    operand = getDisplayValue();
+    op = operator.textContent;
+    displayValue = '';
   })
 });
