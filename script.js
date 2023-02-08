@@ -19,7 +19,6 @@ function operate(operator, a, b) {
 const getDisplayValue = () => Number(displayValue);
 const getOperand = () => Number(operand);
 
-//need to set up event listeners for (each class of) button
 const display = document.getElementById('display');
 let displayValue = '';
 
