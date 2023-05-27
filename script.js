@@ -1,3 +1,12 @@
+//debugging
+const checkVars = () => {
+    console.log('displayValue: ', displayValue, '\nop: ', op,
+                '\noperand: ', operand,
+                '\noperand2: ', operand2,
+                '\nanswer: ', answer
+                )
+}
+
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
