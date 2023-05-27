@@ -43,22 +43,31 @@ digits.forEach(digit => {
 
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
-    operand = Number(displayValue);
     op = operator.textContent;
-    displayValue = '';
+    if (!operand) {
+      operand = Number(displayValue);
+      displayValue = '';
+    } else {
+      operand2 = Number(displayValue);
+      answer = operate(op, Number(operand), Number(operand2));
+      display.textContent = answer;
+      displayValue = '';
+    }
   })
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, Number(operand), Number(displayValue));
+  answer = operate(op, Number(operand), Number(operand2));
   display.textContent = answer;
   operand = answer;
-  displayValue = answer;
-  operator = '';
+  operand2 = '';
 });
 
 clear.addEventListener('click', () => {
     display.textContent = '0';
     displayValue = '';
+    op = '';
+    operand = '';
+    operand2 = '';
     answer = 0;
 })
