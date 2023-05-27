@@ -52,21 +52,23 @@ digits.forEach(digit => {
 
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
-    op = operator.textContent;
     if (!operand) {
       operand = Number(displayValue);
       displayValue = '';
     } else {
       operand2 = Number(displayValue);
       answer = operate(op, Number(operand), Number(operand2));
+      operand = answer;
+      operand2 = 0;
       display.textContent = answer;
       displayValue = '';
     }
+    op = operator.textContent;
   })
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, Number(operand), Number(operand2));
+  answer = operate(op, Number(operand), Number(operand2) || Number(displayValue));
   display.textContent = answer;
   operand = answer;
   operand2 = '';
