@@ -29,6 +29,7 @@ const clear = document.getElementById('clear');
 
 let op = '';
 let operand = '';
+let operand2 = '';
 let answer = 0;
 
 digits.forEach(digit => {
