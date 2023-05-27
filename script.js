@@ -16,9 +16,6 @@ function operate(operator, a, b) {
   }
 }
 
-const getDisplayValue = () => Number(displayValue);
-const getOperand = () => Number(operand);
-
 const display = document.getElementById('display');
 let displayValue = '';
 
@@ -46,14 +43,14 @@ digits.forEach(digit => {
 
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
-    operand = getDisplayValue();
+    operand = Number(displayValue);
     op = operator.textContent;
     displayValue = '';
   })
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, getOperand(), getDisplayValue());
+  answer = operate(op, Number(operand), Number(displayValue));
   display.textContent = answer;
   operand = answer;
   displayValue = answer;
