@@ -72,13 +72,15 @@ equals.addEventListener('click', () => {
   display.textContent = answer;
   operand = answer;
   operand2 = '';
+  op = '';
+  displayValue = '';
 });
 
 clear.addEventListener('click', () => {
-    display.textContent = '0';
-    displayValue = '';
-    op = '';
-    operand = '';
-    operand2 = '';
-    answer = 0;
+  display.textContent = '0';
+  displayValue = '';
+  op = '';
+  operand = '';
+  operand2 = '';
+  answer = 0;
 })
