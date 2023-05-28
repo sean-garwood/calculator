@@ -1,6 +1,6 @@
 //debugging
 const checkVars = () => {
-    console.log('displayValue: ', displayValue, '\nop: ', op,
+    console.log('memory: ', displayValue, '\nop: ', op,
                 '\noperand: ', operand,
                 '\noperand2: ', operand2,
                 '\nanswer: ', answer
@@ -11,6 +11,7 @@ const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
+const clearMemory = () => memory = '';
 
 function operate(operator, a, b) {
   switch (operator) {
@@ -26,7 +27,7 @@ function operate(operator, a, b) {
 }
 
 const display = document.getElementById('display');
-let displayValue = '';
+let memory = '';
 
 const digits = Array.from(document.getElementsByClassName('digit'));
 const operators = Array.from(document.getElementsByClassName('operator'));
@@ -40,12 +41,12 @@ let answer = 0;
 
 digits.forEach(digit => {
   digit.addEventListener('click', () => {
-    if (!displayValue) {
+    if (!memory) {
       display.textContent = digit.textContent;
-      displayValue = digit.textContent;
+      memory = digit.textContent;
     } else {
       display.textContent += digit.textContent;
-      displayValue += digit.textContent;
+      memory += digit.textContent;
     }
   })
 });
@@ -53,34 +54,33 @@ digits.forEach(digit => {
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
     if (!operand) {
-      operand = Number(displayValue);
-      displayValue = '';
+      operand = Number(memory);
     } else {
-      operand2 = Number(displayValue);
+      operand2 = Number(memory);
       answer = operate(op, Number(operand), Number(operand2));
       operand = answer;
       operand2 = 0;
       display.textContent = answer;
-      displayValue = '';
     }
+    clearMemory();
     op = operator.textContent;
   })
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, Number(operand), Number(operand2) || Number(displayValue));
+  answer = operate(op, Number(operand), Number(operand2) || Number(memory));
   display.textContent = answer;
   operand = answer;
   operand2 = '';
   op = '';
-  displayValue = '';
+  clearMemory();
 });
 
 clear.addEventListener('click', () => {
   display.textContent = '0';
-  displayValue = '';
   op = '';
   operand = '';
   operand2 = '';
   answer = 0;
+  clearMemory();
 })
