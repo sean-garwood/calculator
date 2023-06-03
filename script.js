@@ -74,6 +74,7 @@ operators.forEach(operator => {
 equals.addEventListener('click', () => {
   answer = operate(op, Number(operand), Number(operand2) || Number(memory));
   display.textContent = answer;
+  op = '';
   operand = answer;
   operand2 = '';
   clearMemory();
