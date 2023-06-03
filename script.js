@@ -11,7 +11,12 @@ const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
-const clearMemory = () => memory = '';
+const clearMemory = () => {
+  memory = '';
+  operand = answer;
+  operand2 = 0;
+  op = '';
+}
 
 function operate(operator, a, b) {
   if (!operator) {
@@ -31,16 +36,15 @@ function operate(operator, a, b) {
 }
 
 const display = document.getElementById('display');
-let memory = '';
-
 const digits = Array.from(document.getElementsByClassName('digit'));
 const operators = Array.from(document.getElementsByClassName('operator'));
 const equals = document.getElementById('equals');
 const clear = document.getElementById('clear');
 
+let memory = '';
 let op = '';
-let operand = '';
-let operand2 = '';
+let operand = 0;
+let operand2 = 0;
 let answer = 0;
 
 digits.forEach(digit => {
@@ -59,32 +63,25 @@ operators.forEach(operator => {
   operator.addEventListener('click', () => {
     if (!operand) {
       operand = Number(memory);
+      memory = '';
     } else {
       operand2 = Number(memory);
-      answer = operate(op, Number(operand), Number(operand2));
-      operand = answer;
-      operand2 = 0;
+      answer = operate(op, operand, operand2);
       display.textContent = answer;
+      clearMemory();
     }
-    clearMemory();
     op = operator.textContent;
   })
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, Number(operand), Number(operand2) || Number(memory));
+  answer = operate(op, operand, operand2 || Number(memory));
   display.textContent = answer;
-  op = '';
-  operand = answer;
-  operand2 = '';
   clearMemory();
 });
 
 clear.addEventListener('click', () => {
   display.textContent = '0';
-  op = '';
-  operand = '';
-  operand2 = '';
   answer = 0;
   clearMemory();
 })
