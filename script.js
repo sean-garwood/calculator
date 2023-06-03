@@ -1,6 +1,6 @@
 //debugging
 const checkVars = () => {
-    console.log('memory: ', displayValue, '\nop: ', op,
+    console.log('memory: ', memory, '\nop: ', op,
                 '\noperand: ', operand,
                 '\noperand2: ', operand2,
                 '\nanswer: ', answer
@@ -14,15 +14,19 @@ const divide = (a, b) => a / b;
 const clearMemory = () => memory = '';
 
 function operate(operator, a, b) {
-  switch (operator) {
-    case '+':
-      return add(a, b);
-    case '-':
-      return subtract(a, b);
-    case '*':
-      return multiply(a, b);
-    case '/':
-      return divide(a, b);
+  if (!operator) {
+    return answer;
+  } else {
+    switch (operator) {
+      case '+':
+        return add(a, b);
+      case '-':
+        return subtract(a, b);
+      case '*':
+        return multiply(a, b);
+      case '/':
+        return divide(a, b);
+    }
   }
 }
 
@@ -72,7 +76,6 @@ equals.addEventListener('click', () => {
   display.textContent = answer;
   operand = answer;
   operand2 = '';
-  op = '';
   clearMemory();
 });
 
