@@ -24,13 +24,13 @@ function operate(operator, a, b) {
   } else {
     switch (operator) {
       case '+':
-        return add(a, b);
+        return +add(a, b).toFixed(9);
       case '-':
-        return subtract(a, b);
+        return +subtract(a, b).toFixed(9);
       case '*':
-        return multiply(a, b);
+        return +multiply(a, b).toFixed(9);
       case '/':
-        return divide(a, b);
+        return +divide(a, b).toFixed(9);
     }
   }
 }
