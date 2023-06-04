@@ -69,6 +69,11 @@ operators.forEach(operator => {
       answer = operate(op, operand, Number(memory));
       display.textContent = answer;
       clearMemory();
+      if (answer === 'infinity?') {
+        operand = 0;
+        answer = 0;
+        memory = '';
+      }
     }
     op = operator.textContent;
   })
@@ -80,6 +85,11 @@ equals.addEventListener('click', () => {
   memory = answer;
   op = '';
   operand = 0;
+  if (answer === 'infinity?') {
+    operand = 0;
+    answer = 0;
+    memory = '';
+  }
 });
 
 clear.addEventListener('click', () => {
