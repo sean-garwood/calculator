@@ -80,7 +80,12 @@ operators.forEach(operator => {
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, operand, Number(memory));
+  if (memory && !(op || operand || answer)) {
+    answer = memory;
+  }
+  else {
+    answer = operate(op, operand, Number(memory));
+  }
   display.textContent = answer;
   memory = answer;
   op = '';
