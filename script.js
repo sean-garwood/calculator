@@ -42,6 +42,7 @@ const digits = Array.from(document.getElementsByClassName('digit'));
 const operators = Array.from(document.getElementsByClassName('operator'));
 const equals = document.getElementById('equals');
 const clear = document.getElementById('clear');
+const decimal = document.getElementById('decimal');
 
 let memory = '';
 let op = '';
@@ -80,7 +81,7 @@ operators.forEach(operator => {
 });
 
 equals.addEventListener('click', () => {
-  if (memory && !(op || operand || answer)) {
+  if (memory & ! (op || operand || answer)) {
     answer = memory;
   }
   else {
@@ -102,3 +103,9 @@ clear.addEventListener('click', () => {
   answer = 0;
   clearMemory();
 });
+
+decimal.addEventListener('click', () => {
+  if (Number(display.textContent + decimal.textContent)/ 1) {
+    display.textContent += decimal.textContent;
+  }
+})
