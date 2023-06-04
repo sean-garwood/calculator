@@ -105,7 +105,7 @@ clear.addEventListener('click', () => {
 });
 
 decimal.addEventListener('click', () => {
-  if (Number(display.textContent + decimal.textContent)/ 1) {
+  if (Number(display.textContent + decimal.textContent) / 1) {
     display.textContent += decimal.textContent;
   }
 })
