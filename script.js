@@ -2,7 +2,6 @@
 const checkVars = () => {
     console.log('memory: ', memory, '\nop: ', op,
                 '\noperand: ', operand,
-                '\noperand2: ', operand2,
                 '\nanswer: ', answer
                 )
 }
@@ -14,7 +13,6 @@ const divide = (a, b) => a / b;
 const clearMemory = () => {
   memory = '';
   operand = answer;
-  operand2 = 0;
   op = '';
 }
 
@@ -44,7 +42,6 @@ const clear = document.getElementById('clear');
 let memory = '';
 let op = '';
 let operand = 0;
-let operand2 = 0;
 let answer = 0;
 
 digits.forEach(digit => {
@@ -65,8 +62,7 @@ operators.forEach(operator => {
       operand = Number(memory);
       memory = '';
     } else {
-      operand2 = Number(memory);
-      answer = operate(op, operand, operand2);
+      answer = operate(op, operand, Number(memory));
       display.textContent = answer;
       clearMemory();
     }
@@ -75,7 +71,7 @@ operators.forEach(operator => {
 });
 
 equals.addEventListener('click', () => {
-  answer = operate(op, operand, operand2 || Number(memory));
+  answer = operate(op, operand, Number(memory));
   display.textContent = answer;
   clearMemory();
 });
