@@ -55,13 +55,6 @@ html, body {
   grid-template-rows: repeat(5, 1fr);
 }
 
-.digit, .operator{
-  font-size: 28px;
-}
-
-#equals {
-  font-size: 28px;
-}
-#clear {
-  font-size: 22px;
+.buttons-container * {
+  font-size: 36px;
 }
