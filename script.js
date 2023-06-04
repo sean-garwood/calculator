@@ -43,6 +43,8 @@ const operators = Array.from(document.getElementsByClassName('operator'));
 const equals = document.getElementById('equals');
 const clear = document.getElementById('clear');
 const decimal = document.getElementById('decimal');
+const sign = document.getElementById('sign');
+const backspace = document.getElementById('backspace');
 
 let memory = '';
 let op = '';
@@ -109,3 +111,7 @@ decimal.addEventListener('click', () => {
     display.textContent += decimal.textContent;
   }
 })
+
+backspace.addEventListener('click', () => {
+  display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+});
