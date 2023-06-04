@@ -28,7 +28,11 @@ function operate(operator, a, b) {
       case '*':
         return +multiply(a, b).toFixed(9);
       case '/':
-        return +divide(a, b).toFixed(9);
+        if (b === 0) {
+          return 'infinity?'
+        } else {
+          return +divide(a, b).toFixed(9);
+        }
     }
   }
 }
@@ -74,6 +78,7 @@ equals.addEventListener('click', () => {
   answer = operate(op, operand, Number(memory));
   display.textContent = answer;
   clearMemory();
+  operand = 0;
 });
 
 clear.addEventListener('click', () => {
