@@ -61,6 +61,13 @@ Odin Project](https://www.theodinproject.com/lessons/foundations-calculator).
   - Display a snarky error message if the user tries to divide by 0… and don’t let
     it crash your calculator!
 
+## known issues
+
+pressing a digit after pressing equals and then pressing another operator button
+displays the last answer given and still stores last answer as the operand, i.e.:
+
+1 + 1 = 2 3 + (display = 2) + 3 = (display = 5)
+
 ## Extra Credit
 
 - Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! Make sure you don’t let them type more than one though: 12.3.56.5. It is hard to do math on these numbers. (disable the decimal button if there’s already one in the display)
