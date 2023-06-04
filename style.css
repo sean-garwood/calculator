@@ -19,6 +19,9 @@ html, body {
   justify-content: center;
 }
 
+.title {
+  font-size: 36pt;
+}
 .calc-container {
   display: flex;
   flex: auto;
@@ -42,14 +45,14 @@ html, body {
 }
 
 .buttons-container, .display-container {
-  width: 410px;
+  width: 660px;
 }
 
 .buttons-container {
-  height: 500px;
+  height: 800px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .digit, .operator{
