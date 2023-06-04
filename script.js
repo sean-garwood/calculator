@@ -29,7 +29,7 @@ function operate(operator, a, b) {
         return +multiply(a, b).toFixed(9);
       case '/':
         if (b === 0) {
-          return 'infinity?'
+          return 'infinity?';
         } else {
           return +divide(a, b).toFixed(9);
         }
@@ -50,7 +50,7 @@ let answer = 0;
 
 digits.forEach(digit => {
   digit.addEventListener('click', () => {
-    if (!memory) {
+    if (!memory || memory === answer) {
       display.textContent = digit.textContent;
       memory = digit.textContent;
     } else {
@@ -77,7 +77,8 @@ operators.forEach(operator => {
 equals.addEventListener('click', () => {
   answer = operate(op, operand, Number(memory));
   display.textContent = answer;
-  clearMemory();
+  memory = answer;
+  op = '';
   operand = 0;
 });
 
@@ -85,4 +86,4 @@ clear.addEventListener('click', () => {
   display.textContent = '0';
   answer = 0;
   clearMemory();
-})
+});
